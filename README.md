@@ -1,24 +1,39 @@
-# Mobile Scaffolding
+# Comic App
 
-Este repositorio se presenta como una referencia para organizar un proyecto de Android. La elección de packages está
-basada en las recomendaciones de android [1].
+Proyecto creado en la materia móvil 3 durante la cursada usando las mejores prácticas que nos sugiere android
 
-Existen packages principales que respetan esa arquitectura: Data, Domain y UI. Dentro de cada package encontrarás un
-readme.md que explica un poco el rol de cada uno.
+- Coroutines
+- MVVM
+- Dagger Hilt
+- Retrofit
+- Coil
+- Room
+- Navigation Components
+- Api SuperHero API
+- Flow
+- Jetpack Compose
+- Permisos de localización
+- Mapa
+- Cámara
+- Sensor
+- Animaciones
+- Generacion de Qr y leer el Qr
+- Testing
 
-- Data: https://github.com/unlam-tec-movil/scaffolding/tree/main/app/src/main/java/ar/edu/unlam/mobile/scaffold/data
-- Domain: https://github.com/unlam-tec-movil/scaffolding/tree/main/app/src/main/java/ar/edu/unlam/mobile/scaffold/domain
-- UI: https://github.com/unlam-tec-movil/scaffolding/tree/main/app/src/main/java/ar/edu/unlam/mobile/scaffold/ui
+# Screenshot
+<img src="https://github.com/FacuSosa/Tp_Movil_3/assets/88222890/40addc5d-4e4d-46cc-a5f2-cb969cf6fd4c" width="250" /> 
+<img src="https://github.com/FacuSosa/Tp_Movil_3/assets/88222890/cfad2fbd-3ba4-457a-8c75-3f191b259f2b" width="250" /> 
+<img src="https://github.com/FacuSosa/Tp_Movil_3/assets/88222890/b3c62c77-18f4-41eb-9f84-dffddcffa167" width="250" /> 
+<img src="https://github.com/FacuSosa/Tp_Movil_3/assets/88222890/07187a1a-0499-4144-ac15-2aad9901a783" width="250" /> 
+<img src="https://github.com/FacuSosa/Tp_Movil_3/assets/88222890/1d32769b-6731-4d5c-b83a-8873ac9762ae" width="250" /> 
 
-Hay otro package, core, que contiene elementos que son comunes a todos los packages.
-
-## The Cat API
-
-Como ejemplo para esta aplicación consumimos una API de gatos: https://thecatapi.com/ Esta API nos permite obtener la
-foto de un gato al azar. Por esto es que verás al modelo Kitty como nuestro modelo de negocio principal. Los compomentes
-renderizarán la información recibida por dicha API.
-
-Invitamos a recorrer el proyecto, a familizarizarse con la estructura y a leer los readme.md de cada package.
+# Demo App 
 
 
-[1]: https://developer.android.com/topic/architecture#recommended-app-arch
+
+
+
+
+
+
+
