@@ -1,0 +1,179 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    //id 'com.google.dagger.hilt.android'
+    id 'dagger.hilt.android.plugin'
+    id 'org.jetbrains.kotlinx.kover'
+    id 'com.google.devtools.ksp'
+}
+
+android {
+    namespace 'ar.edu.unlam.mobile.scaffold'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "ar.edu.unlam.mobile.scaffold"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    buildFeatures {
+        compose true
+        viewBinding true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.5.3'
+    }
+    packagingOptions {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            merges += "META-INF/LICENSE.md"
+            merges += "META-INF/LICENSE-notice.md"
+        }
+    }
+    testOptions {
+        unitTests.includeAndroidResources = true
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.7.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.7.2'
+    implementation 'androidx.activity:activity-compose:1.7.2'
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-graphics'
+    implementation 'androidx.test:rules:1.5.0'
+
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1'
+    testImplementation 'app.cash.turbine:turbine:1.0.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation 'androidx.arch.core:core-testing:2.2.0'
+    androidTestImplementation 'app.cash.turbine:turbine:1.0.0' // testeo simple de flows
+    testImplementation 'androidx.arch.core:core-testing:2.2.0'
+
+    // Roboelectric para testear room en unit tests
+    testImplementation 'org.robolectric:robolectric:4.11.1'
+    testImplementation "org.robolectric:annotations:4.11.1"
+
+    // Mockk
+    def mockkVersion = "1.13.7"
+    testImplementation "io.mockk:mockk-android:${mockkVersion}"
+    testImplementation "io.mockk:mockk-agent:${mockkVersion}"
+    androidTestImplementation "io.mockk:mockk-android:${mockkVersion}"
+    androidTestImplementation "io.mockk:mockk-agent:${mockkVersion}"
+
+    //asserts más entendibles
+    testImplementation "com.google.truth:truth:1.1.4"
+    androidTestImplementation "com.google.truth:truth:1.1.4"
+
+    // para utilizar livedata en compose
+    // repositorio de ejemplo: https://github.com/vinaygaba/Learn-Jetpack-Compose-By-Example/blob/master/app/src/main/java/com/example/jetpackcompose/state/livedata/LiveDataActivity.kt
+    implementation 'androidx.compose.runtime:runtime-livedata:1.6.0-alpha05'
+
+
+    // Inyeccion de dependencias con Hilt
+    implementation 'com.google.dagger:hilt-android:2.48' //2.45
+    androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
+    debugImplementation 'androidx.compose.ui:ui-tooling'
+    debugImplementation 'androidx.compose.ui:ui-test-manifest'
+    implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
+    ksp 'com.google.dagger:hilt-compiler:2.48' //2.45
+
+
+    // Importante: Definir ambos lifecycle para que no exista conflicto entre versiones
+    //implementation 'androidx.lifecycle:lifecycle-viewmodel:2.6.2'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2'
+    implementation "androidx.lifecycle:lifecycle-runtime-compose:2.6.2"
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.2'
+    implementation 'androidx.navigation:navigation-compose:2.7.2'
+
+
+
+    // Retrofit: para invocar servicios externos
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    // Jetpack Compose
+    implementation platform('androidx.compose:compose-bom:2023.09.00')
+    androidTestImplementation platform('androidx.compose:compose-bom:2023.09.00')
+    // Material Design 3
+    implementation("androidx.compose.material3:material3:1.1.1")
+    implementation "androidx.compose.ui:ui-tooling-preview:1.6.0-alpha05"
+
+    // Async Images
+    implementation("io.coil-kt:coil-compose:2.4.0")
+
+    //Room
+    def room_version = "2.5.2"
+
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation("androidx.room:room-ktx:$room_version")
+
+    // To use Kotlin annotation processing tool (kapt) - now updated to ksp
+    ksp("androidx.room:room-compiler:$room_version")
+
+    // optional - Test helpers
+    testImplementation("androidx.room:room-testing:$room_version")
+
+    // optional - Paging 3 Integration
+    implementation("androidx.room:room-paging:$room_version")
+
+    // coil - async image composables
+    implementation("io.coil-kt:coil-compose:2.4.0")
+
+    //Map
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
+    implementation 'com.google.maps.android:maps-compose:2.11.4'
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
+    implementation "com.google.accompanist:accompanist-permissions:0.33.2-alpha"
+
+
+
+    //Camara (Permisos)
+    implementation "com.google.accompanist:accompanist-permissions:0.29.1-alpha"
+
+    //CamaraX
+    def camerax_version = "1.3.0-rc01"
+    implementation "androidx.camera:camera-camera2:${camerax_version}"
+    implementation "androidx.camera:camera-lifecycle:${camerax_version}"
+    implementation "androidx.camera:camera-view:${camerax_version}"
+
+    //SharedPreferences
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
+
+    // ML - kit: Google code scanner (Android only)
+    implementation 'com.google.android.gms:play-services-code-scanner:16.1.0'
+
+    //Zxing generador QR
+    implementation "com.google.zxing:core:3.5.1"
+}

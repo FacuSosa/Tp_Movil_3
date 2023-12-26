@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Comic War</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyC6OwYwCZ0jzc6gYv6NKkel2K1ShQGkKfw</string>
+    <string name="title_activity_screen_map">ScreenMapActivity</string>
+</resources>
