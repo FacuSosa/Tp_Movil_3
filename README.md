@@ -29,6 +29,23 @@ Proyecto creado en la materia m√≥vil 3 durante la cursada usando las mejores pr√
 
 # Demo App 
 
+<div align="center">
+  <video src="https://github.com/FacuSosa/Tp_Movil_3/assets/88222890/f8abaaf4-6dd7-427f-819c-2ec68009fb0b" width="400" />
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
