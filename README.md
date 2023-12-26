@@ -19,6 +19,7 @@ Proyecto creado en la materia m√≥vil 3 durante la cursada usando las mejores pr√
 - Animaciones
 - Generacion de Qr y leer el Qr
 - Testing
+- Dagger Hilt
 
 # Screenshot
 <img src="https://github.com/FacuSosa/Tp_Movil_3/assets/88222890/40addc5d-4e4d-46cc-a5f2-cb969cf6fd4c" width="250" /> 
